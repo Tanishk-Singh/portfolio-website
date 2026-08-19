@@ -14,15 +14,15 @@ const CHANNELS = [
     icon: Mail,
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/tanishksingh/",
     label: "LinkedIn",
     value: "linkedin.com/in/tanishksingh",
     icon: Linkedin,
   },
   {
-    href: "https://github.com",
+    href: "https://github.com/Tanishk-Singh",
     label: "GitHub",
-    value: "github.com/tanishksingh",
+    value: "github.com/Tanishk-Singh",
     icon: Github,
   },
 ];

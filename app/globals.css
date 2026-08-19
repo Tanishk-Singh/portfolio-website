@@ -3,6 +3,9 @@
 @theme {
   /* ---- Color tokens (agreed design system) ---- */
   --color-bg: #fafaf7;
+  --color-bg-gradient-start: #fbfaf7;
+  --color-bg-gradient-mid: #f5f6fa;
+  --color-bg-gradient-end: #e9edf5;
   --color-surface: #ffffff;
   --color-ink: #15171c;
   --color-muted: #5b6472;
@@ -38,7 +41,14 @@
   }
 
   body {
-    background-color: var(--color-bg);
+    background-color: var(--color-bg-gradient-end);
+    background-image: linear-gradient(
+      165deg,
+      var(--color-bg-gradient-start) 0%,
+      var(--color-bg-gradient-mid) 45%,
+      var(--color-bg-gradient-end) 100%
+    );
+    background-attachment: fixed;
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

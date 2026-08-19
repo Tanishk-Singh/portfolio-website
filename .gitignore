@@ -7,3 +7,8 @@ out
 next-env.d.ts
 .env*.local
 .DS_Store
+
+# Personal files kept local-only (contain PII / aren't for the public repo)
+/resume/
+/public/resume.pdf
+/public/portfolio.jpg

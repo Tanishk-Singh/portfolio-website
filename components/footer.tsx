@@ -15,10 +15,10 @@ export function Footer() {
           <SocialLink href="mailto:hello@tanishksingh.com" label="Email">
             <Mail size={18} />
           </SocialLink>
-          <SocialLink href="https://github.com" label="GitHub">
+          <SocialLink href="https://github.com/Tanishk-Singh" label="GitHub">
             <Github size={18} />
           </SocialLink>
-          <SocialLink href="https://linkedin.com" label="LinkedIn">
+          <SocialLink href="https://www.linkedin.com/in/tanishksingh/" label="LinkedIn">
             <Linkedin size={18} />
           </SocialLink>
         </div>

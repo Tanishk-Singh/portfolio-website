@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, FolderGit2, Wrench } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -16,43 +17,94 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-hairline">
-        <Container className="flex flex-col items-start gap-6 py-24 md:py-32">
-          <FadeIn>
-            <p className="text-sm font-medium uppercase tracking-wide text-accent">
-              MS Data Science · University of Arizona
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.08}>
-            <h1 className="max-w-2xl font-display text-4xl font-medium leading-[1.1] text-ink md:text-6xl">
-              I build ML systems that run where compute is scarce.
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.16}>
-            <p className="max-w-xl text-lg leading-relaxed text-muted">
-              Focused on neural network compression, hardware-software
-              co-design, and efficient inference — turning research into
-              things that actually fit on the edge.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.24}>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5"
-              >
-                See the work
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
-              >
-                Get in touch
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="relative overflow-hidden border-b border-hairline">
+        {/* Full-bleed photo, fading into the page background on its left edge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45%] md:block"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 35%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 35%)",
+          }}
+        >
+          <Image
+            src="/portfolio.jpg"
+            alt=""
+            fill
+            priority
+            sizes="45vw"
+            className="object-cover object-top"
+          />
+        </div>
+
+        <Container className="relative flex min-h-[560px] flex-col justify-center py-24 md:min-h-[640px] md:py-32">
+          <div className="flex max-w-sm flex-col items-start gap-5 md:max-w-md">
+            <FadeIn>
+              <p className="text-sm font-medium uppercase tracking-wide text-accent">
+                MS Data Science · University of Arizona
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.08}>
+              <h1 className="font-display text-5xl font-medium leading-[1.05] text-ink md:text-6xl">
+                Tanishk Singh
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.14}>
+              <p className="text-xl leading-snug text-ink md:text-2xl">
+                <span className="font-medium">Data Scientist &amp; ML Engineer</span>
+                <span className="text-muted">
+                  {" "}
+                  — efficient systems, from CUDA kernels to production RAG
+                  pipelines.
+                </span>
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-base leading-relaxed text-muted">
+                Focused on ML systems efficiency, federated learning, and
+                hardware-aware inference — turning research into things that
+                actually run.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.26}>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/resume.pdf"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5"
+                >
+                  Résumé
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+                >
+                  Get in touch
+                </Link>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-1.5 px-1 text-sm font-medium text-muted transition-colors hover:text-ink"
+                >
+                  Or see the work first
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
         </Container>
+
+        {/* Contained photo on small screens, where the full-bleed treatment doesn't fit */}
+        <FadeIn delay={0.2}>
+          <div className="relative mx-6 mb-10 aspect-[4/5] overflow-hidden rounded-3xl border border-hairline bg-surface shadow-lg shadow-ink/5 md:hidden">
+            <Image
+              src="/portfolio.jpg"
+              alt="Tanishk Singh"
+              fill
+              sizes="90vw"
+              className="object-cover object-top"
+            />
+          </div>
+        </FadeIn>
       </section>
 
       {/* Stats */}
